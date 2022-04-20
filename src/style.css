@@ -20,13 +20,11 @@ li {
   list-style: none;
 }
 
-.date-time {
-  position: relative;
-  top: -100px;
-  margin: 0 auto;
+.daily-temp-date {
+  text-align: center;
 }
 
-.weather-info {
+.date-time {
   position: relative;
   top: -100px;
   margin: 0 auto;
@@ -48,8 +46,28 @@ li {
   margin: 10px 0 0 0;
 }
 
+.temperature {
+  font-size: 11px;
+  text-align: center;
+}
+
+.weather-info {
+  position: relative;
+  top: -100px;
+  margin: 0 auto;
+}
+
 .weekly-temp {
   font-size: 11px;
+}
+
+#celcius-temp {
+  font-size: 15px;
+  position: relative;
+  bottom: 25px;
+  margin: 0 auto;
+  cursor: default;
+  color: #212529;
 }
 
 #city-name {
@@ -62,13 +80,16 @@ li {
   text-transform: capitalize;
 }
 
-#celcius-temp {
-  font-size: 15px;
+#daily-temp {
   position: relative;
-  bottom: 25px;
+  top: -50px;
+}
+
+#daily-temp-img {
+  display: block;
   margin: 0 auto;
-  cursor: default;
-  color: #212529;
+  position: relative;
+  top: -5px;
 }
 
 #fahrenheit-temp {
