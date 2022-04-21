@@ -40,7 +40,6 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#weather-icon");
 
   celciusTemp = response.data.main.temp;
-
   cityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   mainTemperature.innerHTML = Math.round(response.data.main.temp);
   feelsLike.innerHTML = `Feels like: ${Math.round(
@@ -55,6 +54,7 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  displayCoordinates(response.data.coord);
 }
 
 //search city
@@ -116,3 +116,38 @@ let celciusTemp = null;
 
 let celciusClick = document.querySelector("#celcius-temp");
 celciusClick.addEventListener("click", displayCelcius);
+
+//daily-temp coordinates
+function displayCoordinates(coordinates) {
+  console.log(coordinates);
+  let apiKey = "76bd1c0ff8311a8d7f2ae10658044361";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayCoordinates);
+}
+
+//daily temp
+function displayDailyForecast() {
+  let forecastDaily = document.querySelector("#daily-forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastRow = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastRow =
+      forecastRow +
+      `<div class="col-2">
+                  <div class="daily-temp-date">${day}</div>
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    width="50"
+                    id="daily-temp-img"
+                  />
+                  <div class="temperature">
+                    <span class="daily-temp-max">30°</span>
+                    <span class="daily-temp-min">20°</span>
+                  </div>
+                </div>`;
+  });
+  forecastRow = forecastRow + `</div>`;
+  forecastDaily.innerHTML = forecastRow;
+}
+displayDailyForecast();
