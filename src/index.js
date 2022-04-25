@@ -158,12 +158,12 @@ function displayDailyForecast(response) {
                     id="daily-temp-img"
                   />
                   <div class="temperature">
-                    <span class="daily-temp-max">${Math.round(
+                    <div class="daily-temp-max">Max: ${Math.round(
                       forecastday.temp.max
-                    )}°</span>
-                    <span class="daily-temp-min">${Math.round(
+                    )}°</div>
+                    <div class="daily-temp-min">Min: ${Math.round(
                       forecastday.temp.min
-                    )}°</span>
+                    )}°</div>
                   </div>
                 </div>`;
   });
