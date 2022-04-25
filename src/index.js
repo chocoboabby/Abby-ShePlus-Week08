@@ -127,6 +127,14 @@ function getForecast(coordinates) {
 }
 
 //daily temp
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayDailyForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
@@ -134,16 +142,20 @@ function displayDailyForecast(response) {
   let forecastDaily = document.querySelector("#daily-forecast");
 
   let forecastRow = `<div class="row">`;
-  forecast.forEach(function (forecastday) {
-    forecastRow =
-      forecastRow +
-      `<div class="col-2">
-                  <div class="daily-temp-date">${forecastday.dt}</div>
+  forecast.forEach(function (forecastday, displayeddate) {
+    if (displayeddate < 6)
+      forecastRow =
+        forecastRow +
+        `<div class="col-2">
+                  <div class="daily-temp-date">${formatDay(
+                    forecastday.dt
+                  )}</div>
                   <img
                     src="http://openweathermap.org/img/wn/${
                       forecastday.weather[0].icon
                     }@2x.png"
                     width="50"
+                    id="daily-temp-img"
                   />
                   <div class="temperature">
                     <span class="daily-temp-max">${Math.round(
