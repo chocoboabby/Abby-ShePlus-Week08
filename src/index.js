@@ -49,7 +49,7 @@ timeAndDate.innerHTML = formatDate(now);
 
 //weather info
 function displayWeather(response) {
-  console.log(response.data);
+  //console.log(response.data);
 
   let mainTemperature = document.querySelector("#main-temp");
   let cityName = document.querySelector("#city-name");
@@ -114,7 +114,7 @@ searchCity("Davao");
 
 //daily temp coords
 function getForecast(coordinates) {
-  console.log(coordinates);
+  //console.log(coordinates);
   let apiKey = "76bd1c0ff8311a8d7f2ae10658044361";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
@@ -131,7 +131,7 @@ function formatDay(timestamp) {
 }
 
 function displayDailyForecast(response) {
-  console.log(response.data.daily);
+  //console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastDaily = document.querySelector("#daily-forecast");

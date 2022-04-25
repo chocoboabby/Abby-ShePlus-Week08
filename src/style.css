@@ -1,6 +1,12 @@
+.card-body {
+  background-image: url("../img/bgimg.png");
+}
+
 body {
   padding: 50px;
   font-family: "Special Elite", cursive;
+  color: antiquewhite;
+  background-color: #212529;
 }
 
 a {
@@ -44,9 +50,10 @@ li {
 
 .search-btn {
   margin: 10px 0 0 0;
+  color: antiquewhite;
 }
 
-.temperature {
+#daily-forecast {
   font-size: 11px;
   text-align: center;
 }
@@ -67,7 +74,6 @@ li {
   bottom: 15px;
   left: -15px;
   margin: 0 auto;
-  color: #212529;
 }
 
 #city-name {
