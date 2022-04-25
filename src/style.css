@@ -62,11 +62,11 @@ li {
 }
 
 #celcius-temp {
-  font-size: 15px;
+  font-size: 30px;
   position: relative;
-  bottom: 25px;
+  bottom: 15px;
+  left: -15px;
   margin: 0 auto;
-  cursor: default;
   color: #212529;
 }
 
@@ -90,16 +90,6 @@ li {
   margin: 0 auto;
   position: relative;
   top: -5px;
-}
-
-#fahrenheit-temp {
-  font-size: 15px;
-  position: relative;
-  bottom: 25px;
-  left: -15px;
-  margin: 0 auto;
-  cursor: default;
-  color: #212529;
 }
 
 #weather-icon {

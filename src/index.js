@@ -58,7 +58,6 @@ function displayWeather(response) {
   let windSpeed = document.querySelector("#wind-speed");
   let iconElement = document.querySelector("#weather-icon");
 
-  celciusTemp = response.data.main.temp;
   cityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   mainTemperature.innerHTML = Math.round(response.data.main.temp);
   feelsLike.innerHTML = `Feels like: ${Math.round(
@@ -112,29 +111,6 @@ clickCurrentLocation.addEventListener("click", searchCurrentLocation);
 
 //para lumabas na default search ito kung sakaling walang data sa indexhtml
 searchCity("Davao");
-
-//change to F
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#main-temp");
-  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-let fahrenheitClick = document.querySelector("#fahrenheit-temp");
-fahrenheitClick.addEventListener("click", displayFahrenheit);
-
-//change to C
-function displayCelcius(event) {
-  event.preventDefault;
-  let tempElement = document.querySelector("#main-temp");
-  tempElement.innerHTML = Math.round(celciusTemp);
-}
-
-let celciusTemp = null;
-
-let celciusClick = document.querySelector("#celcius-temp");
-celciusClick.addEventListener("click", displayCelcius);
 
 //daily temp coords
 function getForecast(coordinates) {
